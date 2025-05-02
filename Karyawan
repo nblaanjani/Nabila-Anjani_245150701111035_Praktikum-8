@@ -1,0 +1,34 @@
+public class Karyawan implements Bayarable {
+    private int noRegistrasi;
+    private String namaKaryawan;
+    private int gajiBulan;
+    private NotaBelanja[] daftarNota;
+
+    public Karyawan(int noRegistrasi, String namaKaryawan, int gajiBulan, NotaBelanja[] daftarNota) {
+        this.noRegistrasi = noRegistrasi;
+        this.namaKaryawan = namaKaryawan;
+        this.gajiBulan = gajiBulan;
+        this.daftarNota = daftarNota;
+    }
+
+    @Override
+    public int hitungJumlahBayar() {
+        int totalBelanja = 0;
+        for (NotaBelanja nota : daftarNota) {
+            totalBelanja += nota.hitungJumlahBayar();
+        }
+        return gajiBulan - totalBelanja;
+    }
+
+    public void tampilkanInfoKaryawan() {
+        System.out.println("Nama             : " + namaKaryawan);
+        System.out.println("ID Karyawan      : " + noRegistrasi);
+        System.out.println("Gaji Bulanan     : " + gajiBulan);
+        System.out.println(">> Rincian Belanja:");
+        for (NotaBelanja nota : daftarNota) {
+            nota.tampilkanNota();
+            System.out.println("------------------------");
+        }
+        System.out.println("Sisa Gaji Setelah Potong: " + hitungJumlahBayar());
+    }
+}
