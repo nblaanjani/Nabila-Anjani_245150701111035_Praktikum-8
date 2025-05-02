@@ -1,0 +1,23 @@
+public class NotaBelanja implements Bayarable {
+    private String namaProduk;
+    private int jumlah;
+    private int hargaPerUnit;
+
+    public NotaBelanja(String namaProduk, int jumlah, int hargaPerUnit) {
+        this.namaProduk = namaProduk;
+        this.jumlah = jumlah;
+        this.hargaPerUnit = hargaPerUnit;
+    }
+
+    @Override
+    public int hitungJumlahBayar() {
+        return jumlah * hargaPerUnit;
+    }
+
+    public void tampilkanNota() {
+        System.out.println("Produk   : " + namaProduk);
+        System.out.println("Qty      : " + jumlah);
+        System.out.println("Harga    : " + hargaPerUnit);
+        System.out.println("Subtotal : " + hitungJumlahBayar());
+    }
+}
