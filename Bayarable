@@ -1,0 +1,3 @@
+public interface Bayarable {
+    int hitungJumlahBayar();
+}
