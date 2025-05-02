@@ -1,0 +1,18 @@
+public class App {
+    public static void main(String[] args) {
+        NotaBelanja n1 = new NotaBelanja("Teh Botol", 4, 3000);
+        NotaBelanja n2 = new NotaBelanja("Roti", 2, 7500);
+        NotaBelanja n3 = new NotaBelanja("Susu", 1, 15000);
+
+        NotaBelanja[] belanjaan = {n1, n2, n3};
+
+        Karyawan karyawan1 = new Karyawan(2023001, "Rizal", 3500000, belanjaan);
+        karyawan1.tampilkanInfoKaryawan();
+
+        System.out.println("\n--- Cek Polimorfisme ---");
+        Bayarable[] semua = {n1, n2, n3, karyawan1};
+        for (Bayarable b : semua) {
+            System.out.println("Jumlah yang harus dibayar: " + b.hitungJumlahBayar());
+        }
+    }
+}
